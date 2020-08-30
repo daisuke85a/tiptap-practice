@@ -1,12 +1,17 @@
 <template>
   <div class="icon" :class="[`icon--${name}`, `icon--${size}`, { 'has-align-fix': fixAlign }]">
-    <svg class="icon__svg">
+    <!-- <svg class="icon__svg">
       <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="'#icon--' + name"></use>
+    </svg> -->
+    <svg :viewBox="symbol.viewBox"  class="icon__svg">
+      <use :xlink:href="symbol" />
     </svg>
   </div>
 </template>
 
 <script>
+import bold from '../../assets/images/bold.svg';
+
 export default {
   props: {
     name: {},
@@ -20,6 +25,9 @@ export default {
       default: true,
     },
   },
+  data: function(){
+    return {symbol: bold}
+  }
 }
 </script>
 
